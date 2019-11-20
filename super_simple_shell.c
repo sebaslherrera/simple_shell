@@ -55,10 +55,10 @@ int main(void)
 
 	while (gl != EOF)
 	{
-		printf("#cisfun$ ");
+		printf("($) ");
 		fflush(stdout);
 		gl = _getline(&buffer, &bufferSize, stdin);
-		if (gl > 0 && *buffer != '\n')
+		if (*buffer != '\n')
 		{
 			for (i = 0; buffer[i] != '\0'; i++)
 				continue;
