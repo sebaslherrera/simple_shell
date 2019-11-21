@@ -82,7 +82,6 @@ _printf("%specifier", variable of type specifier);
 .SH SEE ALSO
 .sp
 For more information check out man printf(3)
-.SH BUGS
-This function does not handle flags nor precision.
+Sebastian Lopezon does not handle flags nor precision.
 .SH AUTHOR
-Hugo Bayona and Jorge Chaux, Cohort 10, Holberton school.
+Sebastian Lopez and Jorge Chaux, Cohort 10, Holberton school.
