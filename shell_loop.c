@@ -9,7 +9,10 @@ void shellLoop(void)
 	ssize_t getLine = 1;
 	char **tokens = NULL, *buffer = NULL;
 	int status = 0;
+	Node *path = NULL;
 
+	path = listpath();
+	print_list(path);
 	while (getLine != EOF)
 	{
 		printf("($) ");
@@ -21,5 +24,6 @@ void shellLoop(void)
 			printf("EXITO STATUS\n");
 	}
 	printf("OUT OF LOOP\n");
+	free_list(path);
 	free(buffer);
 }

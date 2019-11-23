@@ -24,7 +24,7 @@ int executeLine(char **buffer, char ***tokens)
 	if (p_child == 0)
 	{
 		printf("Execute line func (*tokens)[0]: %s\n", (*tokens)[0]);
-		exec = execve((*tokens)[0], *tokens, NULL);
+		exec = execve((*tokens)[0], *tokens, environ);
 		if (exec == -1)
 		{
 			printf("Exec -1 \n");
