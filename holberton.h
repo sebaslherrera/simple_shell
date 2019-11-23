@@ -40,7 +40,7 @@ int lenTokens(ssize_t lenReaded, char **buffer);
 void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
-int executeLine(char **buffer, char ***tokens);
+int executeLine(char **buffer, char ***tokens, char *fullPath);
 
 /* String tools */
 char *_strcat(char *dest, char *src);
@@ -69,6 +69,6 @@ Node *_getpathdir(char *path);
 Node *listpath(void);
 
 /* Return the path if found a executable */
-char *addPath(char ***tokens);
+char *addPath(char ***tokens, Node *path);
 
 #endif

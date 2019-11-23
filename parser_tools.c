@@ -5,44 +5,43 @@
  * @tokens: n
  * Return: Pointer to the filename where is the path to use
  */
-char *addPath(char ***tokens)
+char *addPath(char ***tokens, Node *path)
 {
 	struct stat st;
 	Node *pathDirs;
 	char *firstOne, *copyPath = NULL;
 	int lenOne, lenTwo;
 
-	if (tokens == NULL)
+	if (*tokens == NULL)
+	{
+		printf("TOKENS NULO\n");
 		return (NULL);
+	}
 
-	pathDirs = listpath();
+	pathDirs = path;
 	if (pathDirs == NULL)
 		return (NULL);
 
 	firstOne = *(tokens)[0];
 	lenOne = _strlen(firstOne);
 
-	/*print_list(pathDirs);*/
-
 	while (pathDirs != NULL)
 	{
 		lenTwo = _strlen(pathDirs->str);
 		copyPath = malloc((lenTwo + lenOne + 2) * sizeof(char));
+		if (copyPath == NULL)
+			return (NULL);
 		_strcat(copyPath, pathDirs->str);
 		_strcat(copyPath, "/");
 		_strcat(copyPath, firstOne);
 		if (stat(copyPath, &st) == 0)
-		{
-			/*free_list(pathDirs);*/
-			/*return (copyPath);*/
 			break;
-		}
 
 		free(copyPath);
 		copyPath = NULL;
 		pathDirs = pathDirs->next;
 	}
-	/*free_list(pathDirs);*/
+	printf("copyPath %s\n", copyPath);
 	return (copyPath);
 
 }
@@ -123,6 +122,9 @@ ssize_t readLine(char **buffer, char ***tokens)
 
 	gl = _getline(buffer, &bufferSize, stdin);
 
+	if (gl == -1)
+		printf("return of getline es -1\n");
+
 	if (gl > 0 && **buffer != '\n')
 	{
 		printf("Entro al if != new line\n");
@@ -131,7 +133,5 @@ ssize_t readLine(char **buffer, char ***tokens)
 		printf("count of tokens %d\n", countToken);
 		processTokens(tokens, buffer, countToken);
 	}
-	if (gl == -1)
-		printf("return of getline es -1\n");
 	return (gl);
 }

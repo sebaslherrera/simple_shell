@@ -6,15 +6,20 @@
  * @tokens: n
  * Return: (int) status
  */
-int executeLine(char **buffer, char ***tokens)
+int executeLine(char **buffer, char ***tokens, char *fullPath)
 {
 	int p_child, exec, status;
-
-	if (**buffer == '\n')
+	char *originalInput = NULL;
+	if (**buffer == '\n' || fullPath == NULL)
 	{
+		printf("NO ENTRA AL EXECUTE LINE FUNCTION\n");
 		return (1);
 	}
+	printf("ENTRO AL EXECUTE FUNCTION LiNE PRO\n");
 
+	originalInput = (*tokens)[0];
+	printf("original input %s\n", originalInput);
+	(*tokens)[0] = fullPath;
 	p_child =  fork();
 	if (p_child == -1)
 	{
@@ -40,5 +45,6 @@ int executeLine(char **buffer, char ***tokens)
 	}
 	printf("Before free the *tokens in exec\n");
 	free(*tokens);
+	free(fullPath);
 	return (1);
 }
