@@ -62,71 +62,29 @@ char *_strcat(char *dest, char *src)
 	return (dest);
 }
 
-
 /**
- * *_strpbrk - Searches a string for any of set of bytes
- * @s: Char pointer
- * @accept: Char pointer
- *
- * Return: Locates the first ocurrence in the string s
- * of any of the bytes in the  string accept.
+ * *_strdup - Function returns a pointer to a new string
+ * which is a duplicate of the string str.
+ * @str: String
+ * Return: Pointer to a new string
  */
-char *_strpbrk(char *s, char *accept)
+char *_strdup(char *str)
 {
-	int j, flag = 0;
+	char *dupli, *copy;
+	int len = 0;
 
-	while (*s != '\0')
-	{
-		flag = 0;
-		for (j = 0; accept[j] != '\0';  j++)
-		{
-			if (*s == accept[j])
-			{
-				flag = 1;
-				break;
-			}
-		}
-		if (flag)
-			break;
-		s++;
-	}
+	if (str == NULL)
+		return (NULL);
 
-	if (flag)
-		return (s);
-	else
-		return (0);
+	for (copy = str; *copy != '\0'; copy++)
+		len++;
+
+	dupli = malloc(len + 1);
+	if (dupli == NULL)
+		return (NULL);
+
+	_strcpy(dupli, str);
+	return (dupli);
+
 }
 
-
-
-/**
- * _strspn - Gets the length of a prefix substring
- * @s: Char pointer
- * @accept: Char pointer
- *
- * Return: Returns the number of bytes in the initial
- * segment of s which consist
- * only of bytes from accept
- */
-unsigned int _strspn(char *s, char *accept)
-{
-	int i, j, flag;
-	unsigned int ans = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		flag = 1;
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[j])
-			{
-				ans++;
-				flag = 0;
-			}
-		}
-		if (flag)
-			break;
-	}
-
-	return (ans);
-}
