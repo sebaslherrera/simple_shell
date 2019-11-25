@@ -4,11 +4,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <unistd.h>
 #include <fcntl.h>
 #include <signal.h>
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -39,7 +37,7 @@ int lenTokens(ssize_t lenReaded, char **buffer);
 void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
-void isPath(char ***tokens, char **fullPath, char **argv, int *counter, int *errorShowed);
+void isPath(char ***tokns, char **path, char **av, int *count, int *errShowed);
 int executeLine(char **buffer, char ***tokens, char *fullPath);
 
 /* String tools */
@@ -60,7 +58,6 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *_getenv(const char *name);
 char *_getenv_local(const char *name, char **environ);
 
-/* NOT YET */
 /*int _setenv(const char *name, const char *value, int overwrite);*/
 
 /* Get a linked list of a current entorn variable */
