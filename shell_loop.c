@@ -12,11 +12,13 @@ void shellLoop(void)
 	/*int status = 0;*/
 	Node *path = NULL;
 	char *pathCopy = NULL;
+	int inter = 1;
 
 	path = listpath(&pathCopy);
+	isatty(STDIN_FILENO) == 0 ? inter = 0: inter;
 	while (getLine != EOF)
 	{
-		write(1, promt, 4); /* Print the promt */
+		inter == 1 ? write(1, promt, 4) : inter; /* Print the promt */
 		fflush(stdout);
 		getLine = readLine(&buffer, &tokens);
 		if (getLine == EOF) /* Check if it's EOF */
