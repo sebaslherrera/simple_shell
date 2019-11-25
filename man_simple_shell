@@ -6,7 +6,7 @@
 .sp
 .B int _printf(const char *
 .I format
-.B , ...);
+.B ,, ...);
 .sp
 #include "holberton.h
 .SH DESCRIPTION
