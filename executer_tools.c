@@ -10,8 +10,15 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 {
 	int p_child, exec, status;
 	char *originalInput = NULL;
+
+	if (*tokens == NULL)
+	{
+		printf("TOKENS ES NULL executeLine()\n");
+		return (1);
+	}
 	if (**buffer == '\n' || fullPath == NULL)
 	{
+		free(*tokens);
 		printf("NO ENTRA AL EXECUTE LINE FUNCTION\n");
 		return (1);
 	}

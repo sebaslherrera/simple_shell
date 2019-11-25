@@ -14,7 +14,7 @@ char *addPath(char ***tokens, Node *path)
 
 	if (*tokens == NULL)
 	{
-		printf("TOKENS NULO\n");
+		printf("TOKENS NULO en addPath()\n");
 		return (NULL);
 	}
 
@@ -31,9 +31,11 @@ char *addPath(char ***tokens, Node *path)
 		copyPath = malloc((lenTwo + lenOne + 2) * sizeof(char));
 		if (copyPath == NULL)
 			return (NULL);
-		_strcat(copyPath, pathDirs->str);
-		_strcat(copyPath, "/");
-		_strcat(copyPath, firstOne);
+		*copyPath = '\0'; /* Initialized value with null char */
+		printf("%s\n", pathDirs->str);
+		strcat(copyPath, pathDirs->str);
+		strcat(copyPath, "/");
+		strcat(copyPath, firstOne);
 		if (stat(copyPath, &st) == 0)
 			break;
 
@@ -120,6 +122,7 @@ ssize_t readLine(char **buffer, char ***tokens)
 	ssize_t gl;
 	int countToken;
 
+	*tokens = NULL;
 	gl = _getline(buffer, &bufferSize, stdin);
 
 	if (gl == -1)
@@ -130,8 +133,10 @@ ssize_t readLine(char **buffer, char ***tokens)
 		printf("Entro al if != new line\n");
 		replaceNewLine(buffer);
 		countToken = lenTokens(gl, buffer);
-		printf("count of tokens %d\n", countToken);
 		processTokens(tokens, buffer, countToken);
 	}
+
+	if (**buffer == '\n')
+		printf("LE INGRESASTE UN ENTER (new line)\n");
 	return (gl);
 }

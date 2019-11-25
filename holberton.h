@@ -46,6 +46,7 @@ int executeLine(char **buffer, char ***tokens, char *fullPath);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
+char *_strdup(char *str);
 
 /* Print linked list*/
 size_t print_list(const Node *h);
@@ -63,10 +64,10 @@ char *_getenv_local(const char *name, char **environ);
 /*int _setenv(const char *name, const char *value, int overwrite);*/
 
 /* Get a linked list of a current entorn variable */
-Node *_getpathdir(char *path);
+Node *_getpathdir(char *path, char **pathCopy);
 
 /* Get the path into a linked list */
-Node *listpath(void);
+Node *listpath(char **pathCopy);
 
 /* Return the path if found a executable */
 char *addPath(char ***tokens, Node *path);

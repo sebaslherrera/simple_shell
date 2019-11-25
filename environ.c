@@ -26,21 +26,24 @@ char *_getenv(const char *name)
 	return (NULL);
 }
 
-Node *_getpathdir(char *path)
+Node *_getpathdir(char *path, char **pathCopy)
 {
-	char *token;
+	char *token = NULL;
 	Node *head;
 	Node *pathNode;
 
+
 	if (path == NULL)
 		return (NULL);
+
+	*pathCopy = _strdup(path); /* Free on shellLoop() */
 
 	head = NULL;
 	pathNode = malloc(sizeof(Node));
 	if (pathNode == NULL)
 		return (NULL);
 
-	token = strtok(path,  ":");
+	token = strtok(*pathCopy,  ":");
 	pathNode->str = token;
 	pathNode->next = head;
 	head = pathNode;
@@ -56,19 +59,19 @@ Node *_getpathdir(char *path)
 		pathNode->next = head;
 		head = pathNode;
 	}
-
 	return (head);
+
 }
 
 
 /* Return a linked list of all directories of path */
-Node *listpath(void)
+Node *listpath(char **pathCopy)
 {
 	char *getEnv;
 	Node *pathDirs;
 
 	getEnv = _getenv("PATH");
-	pathDirs = _getpathdir(getEnv);
+	pathDirs = _getpathdir(getEnv, pathCopy);
 
 	return (pathDirs);
 }
