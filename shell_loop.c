@@ -9,7 +9,7 @@ void shellLoop(void)
 	ssize_t getLine = 1;
 	char **tokens = NULL, *buffer = NULL, *fullPath = NULL;
 	char *promt = "($) ";
-	int status = 0;
+	/*int status = 0;*/
 	Node *path = NULL;
 	char *pathCopy = NULL;
 
@@ -23,14 +23,14 @@ void shellLoop(void)
 			break;
 		fullPath = addPath(&tokens, path);
 		isPath(&tokens, &fullPath);
-		printf("fullPath: %s\n", fullPath);
-		status = executeLine(&buffer, &tokens, fullPath);
-		if (status == 1)
-			printf("EXITO STATUS\n");
+		/*printf("fullPath: %s\n", fullPath);*/
+		executeLine(&buffer, &tokens, fullPath);
+		/*if (status == 1)
+			printf("EXITO STATUS\n");*/
 	}
-	printf("OUT OF LOOP\n");
+	/*printf("OUT OF LOOP\n");*/
 	free_list(path); /* This is a linked list with all the paths */
 	free(pathCopy); /* This is on _getpathdir() environ.c */
 	free(buffer); /* This is the main buffer */
-	printf("END OF shellLop(void)\n");
+	/*printf("END OF shellLop(void)\n");*/
 }
