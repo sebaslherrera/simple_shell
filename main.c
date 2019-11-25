@@ -5,13 +5,11 @@
  * main - Simple Shell Project
  * Return: nothing
  */
-int main(int argc, char **argv, char **argenv)
+int main(int argc, char **argv)
 {
 	(void) argc;
-	(void) argv;
-	(void) argenv;
 
-	shellLoop();
+	shellLoop(argv);
 
 	return (0);
 }

@@ -57,7 +57,7 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 }
 
 
-void isPath(char ***tokens, char **fullPath)
+void isPath(char ***tokens, char **fullPath, char **argv, int *counter, int *errorShowed)
 {
 	char *firstOne = NULL;
 
@@ -74,7 +74,8 @@ void isPath(char ***tokens, char **fullPath)
 	{
 		if(access(firstOne, F_OK) != 0)
 		{
-			printf("EL ARCHIVO NO EXISTE\n");
+			dprintf(STDERR_FILENO, "%s: %d: %s: not found\n", argv[0], *counter, firstOne);
+			*errorShowed = 1;
 		}
 		else if(access(firstOne, X_OK) != 0)
 		{
