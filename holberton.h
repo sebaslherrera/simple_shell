@@ -40,6 +40,7 @@ int lenTokens(ssize_t lenReaded, char **buffer);
 void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
+void isPath(char ***tokens, char **fullPath);
 int executeLine(char **buffer, char ***tokens, char *fullPath);
 
 /* String tools */

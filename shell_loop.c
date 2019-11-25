@@ -22,11 +22,9 @@ void shellLoop(void)
 		if (getLine == EOF) /* Check if it's EOF */
 			break;
 		fullPath = addPath(&tokens, path);
+		isPath(&tokens, &fullPath);
 		printf("fullPath: %s\n", fullPath);
-		/*if (getLine > 0 && fullPath != NULL)*/
 		status = executeLine(&buffer, &tokens, fullPath);
-		/*else
-			printf("NO ENTRO AL status = executeLine(...)\n");*/
 		if (status == 1)
 			printf("EXITO STATUS\n");
 	}

@@ -52,6 +52,33 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 	}
 	printf("Before free the *tokens in exec\n");
 	free(*tokens);
-	free(fullPath);
+	free(fullPath); /* fullPath from addPath() or isPath() */
 	return (1);
+}
+
+
+void isPath(char ***tokens, char **fullPath)
+{
+	char *firstOne = NULL;
+
+	if (*fullPath != NULL || *tokens == NULL)
+		return;
+
+	firstOne = *(tokens)[0];
+
+	if (access(firstOne, F_OK | X_OK) == 0)
+	{
+		*fullPath = _strdup(firstOne);  /* This will be free() in exec.. */
+	}
+	else
+	{
+		if(access(firstOne, F_OK) != 0)
+		{
+			printf("EL ARCHIVO NO EXISTE\n");
+		}
+		else if(access(firstOne, X_OK) != 0)
+		{
+			printf("NO TIENE PERM DE EJECUCION\n");
+		}
+	}
 }
