@@ -2,6 +2,7 @@
 
 /**
  * shellLoop - Run the shell
+ * @argv: n
  * Return: nothing
  */
 void shellLoop(char **argv)
@@ -16,7 +17,7 @@ void shellLoop(char **argv)
 	int errorShowed = 0, counter = 1;
 
 	path = listpath(&pathCopy);
-	isatty(STDIN_FILENO) == 0 ? inter = 0: inter;
+	isatty(STDIN_FILENO) == 0 ? inter = 0 : inter;
 	while (getLine != EOF)
 	{
 		errorShowed = 0;
@@ -29,11 +30,11 @@ void shellLoop(char **argv)
 		isPath(&tokens, &fullPath, argv, &counter, &errorShowed);
 		/*printf("fullPath: %s\n", fullPath);*/
 		executeLine(&buffer, &tokens, fullPath);
-		/*if (status == 1)
-			printf("EXITO STATUS\n");*/
+		/*if (status == 1) */
+		  /*	printf("EXITO STATUS\n");*/
 		counter++;
-		/*if (errorShowed == 1)
-			printf("SE MOSTRO UN ERROR\n");*/
+		/*if (errorShowed == 1) */
+			/*printf("SE MOSTRO UN ERROR\n");*/
 	}
 	/*printf("OUT OF LOOP\n");*/
 	free_list(path); /* This is a linked list with all the paths */

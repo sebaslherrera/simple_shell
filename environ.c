@@ -1,5 +1,10 @@
 #include "holberton.h"
 
+/**
+ * _getenv - some
+ * @name: a
+ * Return: a
+ */
 char *_getenv(const char *name)
 {
 	int i, j;
@@ -20,12 +25,18 @@ char *_getenv(const char *name)
 
 		if (status)
 		{
-			return (&environ[i][j+1]);
+			return (&environ[i][j + 1]);
 		}
 	}
 	return (NULL);
 }
 
+/**
+ * _getpathdir - some
+ * @path: a
+ * @pathCopy: a
+ * Return: a
+ */
 Node *_getpathdir(char *path, char **pathCopy)
 {
 	char *token = NULL;
@@ -47,7 +58,7 @@ Node *_getpathdir(char *path, char **pathCopy)
 	pathNode->str = token;
 	pathNode->next = head;
 	head = pathNode;
-	while(token != NULL)
+	while (token != NULL)
 	{
 		token = strtok(NULL, ":");
 		if (token == NULL) /* Don't save token NULL in list */
@@ -64,7 +75,11 @@ Node *_getpathdir(char *path, char **pathCopy)
 }
 
 
-/* Return a linked list of all directories of path */
+/**
+ * listpath - Return a linked list of all directories of path
+ * @pathCopy: a
+ * Return: a
+ */
 Node *listpath(char **pathCopy)
 {
 	char *getEnv;

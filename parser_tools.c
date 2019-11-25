@@ -3,6 +3,7 @@
 /**
  * addPath - Get and check if the command is available
  * @tokens: n
+ * @path: n
  * Return: Pointer to the filename where is the path to use
  */
 char *addPath(char ***tokens, Node *path)
@@ -125,8 +126,10 @@ ssize_t readLine(char **buffer, char ***tokens)
 	*tokens = NULL;
 	gl = _getline(buffer, &bufferSize, stdin);
 
-	/*if (gl == -1)
-		printf("return of getline es -1\n");*/
+	/*
+	 * if (gl == -1)
+		printf("return of getline es -1\n");
+	*/
 
 	if (gl > 0 && **buffer != '\n')
 	{
@@ -136,7 +139,9 @@ ssize_t readLine(char **buffer, char ***tokens)
 		processTokens(tokens, buffer, countToken);
 	}
 
-	/*if (**buffer == '\n')
-		printf("LE INGRESASTE UN ENTER (new line)\n");*/
+	/*
+	 * if (**buffer == '\n')
+		printf("LE INGRESASTE UN ENTER (new line)\n");
+	*/
 	return (gl);
 }
