@@ -1,5 +1,11 @@
 # Sebastian Lopez and Jorge Chaux Simple Shell
 ![Simple_shell](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg "Simple_shell")
+
+**Table of Contents**
+
+[TOCM]
+
+[TOC]
 ### Name
 simple_shell
 ### Description
@@ -123,15 +129,20 @@ But also in non-interactive mode:
     hsh main.c shell.c test_ls_2
     $
 ### Included files
+The following files contain different functions that where used:
 - allowed_library.c
 - environ.c
 - executer_tools.c
+Functions to execute a line.
 - holberton.h
 - list_tools.c
 - main.c
-- parser_tools.c
-- shell_loop.c
+- parser_tools.c 
+Contain functions to read a line, replace a new line, find the lengt of a token and process tokens.
+- shell_loop.c 
+Main shell function
 - string-tools.c
+Contain functions to manage strings
 
 ### Credits
 Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/) 
