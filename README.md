@@ -30,7 +30,7 @@
 - All your header files should be include guarded
 - Use system calls only when you need to (why?)
 ## More Info
-###Output
+### Output
 - Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
 - The only difference is when you print an error, the name of the program must be equivalent to your argv[0] (See below)
 
@@ -50,7 +50,7 @@ Same error with your program hsh:
     ./././hsh: 1: qwerty: not found
     $
 
-###List of allowed functions and system calls
+### List of allowed functions and system calls
 
 - access (man 2 access)
 - chdir (man 2 chdir)
