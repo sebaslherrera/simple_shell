@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <signal.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -28,10 +29,8 @@ typedef struct Node
 	struct Node *next;
 } Node;
 
-
-
 /* Main function */
-void shellLoop(void);
+void shellLoop(char **argv);
 
 /* Parser */
 ssize_t readLine(char **buffer, char ***tokens);
@@ -40,7 +39,7 @@ int lenTokens(ssize_t lenReaded, char **buffer);
 void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
-void isPath(char ***tokens, char **fullPath);
+void isPath(char ***tokens, char **fullPath, char **argv, int *counter, int *errorShowed);
 int executeLine(char **buffer, char ***tokens, char *fullPath);
 
 /* String tools */

@@ -20,7 +20,13 @@ int _getchar(void)
 	return (*buff);
 }
 
-
+/**
+ * _getline - something
+ * @lineptr: a
+ * @n: a
+ * @stream: a
+ * Return: some
+ */
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
 	char *temp;
@@ -37,10 +43,8 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		*lineptr = malloc(n_alloc);
 		if (*lineptr == NULL)
 			return (-1);
-
 		*n = n_alloc;
 	}
-
 	while ((c = _getchar()) != EOF)
 	{
 		if (n_read >= *n)
@@ -61,12 +65,8 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 			break;
 
 	}
-
 	if (c == EOF)
 		return (-1);
-
 	(*lineptr)[n_read] = '\0';
-
-
 	return ((ssize_t) n_read);
 }
