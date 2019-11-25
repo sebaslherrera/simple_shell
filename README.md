@@ -1,6 +1,17 @@
 # Sebastian Lopez and Jorge Chaux Simple Shell
 ![Simple_shell](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg "Simple_shell")
+### Name
+simple_shell
+### Description
+simple_shell is an emulation of UNIX command interpreter.
+### Overview
+As an emulation, the simple_shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
+### Invocation
+ If no args are present and if the standard input of the shell is connected  to  a terminal the shell is considered an interactive shell.
+ 
+An  interactive  shell generally prompts before each command and handles programming and command errors differently.
 
+This was done as an exercise for [Holberton School](https://www.holbertonschool.com/)
 ## Learning Objectives
 ### General
 - Who designed and implemented the original Unix operating system
@@ -40,7 +51,7 @@ Example of error with sh:
     /bin/sh: 1: qwerty: not found
     $ echo "qwerty" | /bin/../bin/sh
     /bin/../bin/sh: 1: qwerty: not found
-    $ 
+    $
 Same error with your program hsh:
 
 
@@ -75,7 +86,7 @@ Same error with your program hsh:
 - signal (man 2 signal)
 - stat (__xstat) (man 2 stat)
 - lstat (__lxstat) (man 2 lstat)
--fstat (__fxstat) (man 2 fstat)
+- fstat (__fxstat) (man 2 fstat)
 - strtok (man 3 strtok)
 - wait (man 2 wait)
 - waitpid (man 2 waitpid)
@@ -98,8 +109,8 @@ Your shell should work like this in interactive mode:
       ($) exit
        $
 
-  
 But also in non-interactive mode:
+
     $ echo "/bin/ls" | ./hsh
     hsh main.c shell.c test_ls_2
     $
@@ -111,3 +122,16 @@ But also in non-interactive mode:
     hsh main.c shell.c test_ls_2
     hsh main.c shell.c test_ls_2
     $
+### Included files
+- allowed_library.c
+- environ.c
+- executer_tools.c
+- holberton.h
+- list_tools.c
+- main.c
+- parser_tools.c
+- shell_loop.c
+- string-tools.c
+
+### Credits
+Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/) 
