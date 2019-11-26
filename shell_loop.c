@@ -10,7 +10,6 @@ void shellLoop(char **argv)
 	ssize_t getLine = 1;
 	char **tokens = NULL, *buffer = NULL, *fullPath = NULL;
 	char *promt = "($) ";
-	/*int status = 0;*/
 	Node *path = NULL;
 	char *pathCopy = NULL;
 	int inter = 1;
@@ -18,7 +17,7 @@ void shellLoop(char **argv)
 
 	path = listpath(&pathCopy);
 	isatty(STDIN_FILENO) == 0 ? inter = 0 : inter;
-	while (getLine != EOF)
+	while (TRUE)
 	{
 		errorShowed = 0;
 		inter == 1 ? write(1, promt, 5) : inter; /* Print the promt */

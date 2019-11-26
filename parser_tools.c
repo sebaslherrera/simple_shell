@@ -61,14 +61,15 @@ void processTokens(char ***tokens, char **buffer, int countToken)
 {
 	char *token = NULL;
 	int i;
+	char *delim = " \n\t";
 
 	*tokens = malloc(sizeof(char *) * countToken);
-	token = strtok(*buffer, " ");
+	token = strtok(*buffer, delim);
 	for (i = 0; token != NULL; i++)
 	{
 		(*tokens)[i] = token;
 		/*printf("mi token i: %d, %s\n", i, (*tokens)[i]);*/
-		token = strtok(NULL, " ");
+		token = strtok(NULL, delim);
 	}
 	(*tokens)[i] = token; /*Save the NULL token*/
 	/*printf("mi token i: %d, %s\n", i, (*tokens)[i]);*/
@@ -84,12 +85,13 @@ int lenTokens(ssize_t lenReaded, char **buffer)
 {
 	char *tempToken = NULL, *copyBuffer = NULL;
 	int i;
+	char *delim = " \n\t";
 
 	copyBuffer = malloc(sizeof(char) * lenReaded);
 	_strcpy(copyBuffer, *buffer);
-	tempToken = strtok(copyBuffer, " ");
+	tempToken = strtok(copyBuffer, delim);
 	for (i = 0; tempToken != NULL; i++)
-		tempToken = strtok(NULL, " ");
+		tempToken = strtok(NULL, delim);
 	i++; /* One more to save NULL */
 	free(copyBuffer);
 	return (i);
@@ -110,6 +112,7 @@ void replaceNewLine(char **buffer)
 	(*buffer)[i - 1] = '\0';  /* Replace '\n' by '\0' */
 
 }
+
 
 /**
  * readLine - Get and process the data in the stdin
@@ -137,6 +140,8 @@ ssize_t readLine(char **buffer, char ***tokens)
 		replaceNewLine(buffer);
 		countToken = lenTokens(gl, buffer);
 		processTokens(tokens, buffer, countToken);
+		isBasicExit(tokens, countToken, &gl);
+		isEnv(tokens, countToken);
 	}
 
 	/*

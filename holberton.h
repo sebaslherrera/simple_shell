@@ -11,6 +11,9 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+#define TRUE 1
+#define FALSE 0
+
 extern char **environ;
 
 /**
@@ -29,6 +32,10 @@ typedef struct Node
 
 /* Main function */
 void shellLoop(char **argv);
+
+/* Built-in function */
+void isBasicExit(char ***tokens, int countToken, ssize_t *gl);
+void isEnv(char ***tokens, int countToken);
 
 /* Parser */
 ssize_t readLine(char **buffer, char ***tokens);
