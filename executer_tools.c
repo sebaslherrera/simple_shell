@@ -20,8 +20,6 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 		free(*tokens);	/*printf("NO ENTRA AL EXECUTE LINE FUNCTION\n");*/
 		return (1);
 	}	/*printf("ENTRO AL EXECUTE FUNCTION LiNE PRO\n");*/
-
-	(*tokens)[0] = fullPath;
 	p_child =  fork();
 	if (p_child == -1)
 	{
@@ -30,7 +28,7 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 	}
 	if (p_child == 0)
 	{	/*printf("Execute line func (*tokens)[0]: %s\n", (*tokens)[0]);*/
-		exec = execve((*tokens)[0], *tokens, environ);
+		exec = execve(fullPath, *tokens, environ);
 		if (exec == -1)
 		{
 			printf("Exec -1 \n");

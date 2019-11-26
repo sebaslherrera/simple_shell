@@ -21,7 +21,7 @@ void shellLoop(char **argv)
 	while (getLine != EOF)
 	{
 		errorShowed = 0;
-		inter == 1 ? write(1, promt, 4) : inter; /* Print the promt */
+		inter == 1 ? write(1, promt, 5) : inter; /* Print the promt */
 		fflush(stdout);
 		getLine = readLine(&buffer, &tokens);
 		if (getLine == EOF) /* Check if it's EOF */
