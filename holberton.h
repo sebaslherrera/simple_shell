@@ -35,6 +35,7 @@ void shellLoop(char **argv);
 
 /* Built-in function */
 void isBasicExit(char ***tokens, int countToken, ssize_t *gl);
+void isEnv(char ***tokens, int countToken);
 
 /* Parser */
 ssize_t readLine(char **buffer, char ***tokens);

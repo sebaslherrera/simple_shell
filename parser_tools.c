@@ -141,6 +141,7 @@ ssize_t readLine(char **buffer, char ***tokens)
 		countToken = lenTokens(gl, buffer);
 		processTokens(tokens, buffer, countToken);
 		isBasicExit(tokens, countToken, &gl);
+		isEnv(tokens, countToken);
 	}
 
 	/*
