@@ -77,7 +77,11 @@ Node *listpath(char **pathCopy);
 char *addPath(char ***tokens, Node *path);
 
 /* Prints */
+void pfError(char *av, char *count, char *firstOne, char *message);
+void print_error(char *str);
 void _puts(int fd, char *str);
-int _putchar(int fd, char c);
+
+/* string-tools-adv */
+char *itoa(int value, char *buffer, int base);
 
 #endif

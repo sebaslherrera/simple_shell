@@ -59,6 +59,8 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 void isPath(char ***tokens, char **path, char **av, int *count, int *errShowed)
 {
 	char *firstOne = NULL;
+	char buffer[33];
+	char *msg = NULL;
 
 	if (*path != NULL || *tokens == NULL)
 		return;
@@ -73,13 +75,15 @@ void isPath(char ***tokens, char **path, char **av, int *count, int *errShowed)
 	{
 		if (access(firstOne, F_OK) != 0)
 		{
-			_puts(STDERR_FILENO, "not found");
-			dprintf(STDERR_FILENO, "%s: %d: %s: not found\n", av[0], *count, firstOne);
+			msg = "not found\n";
+			pfError(av[0], itoa(*count, buffer, 10), firstOne, msg);
 			*errShowed = 1;
 		}
 		else if (access(firstOne, X_OK) != 0)
 		{
-			printf("NO TIENE PERM DE EJECUCION\n");
+			msg = "Permission denied\n";
+			pfError(av[0], itoa(*count, buffer, 10), firstOne, msg);
+			*errShowed = 1;
 		}
 	}
 }

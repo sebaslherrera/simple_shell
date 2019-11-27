@@ -2,30 +2,46 @@
 
 
 /**
+ * pfError - fadf
+ * @av: a
+ * @count: a
+ * @firstOne: a
+ * @message: a
+ */
+void pfError(char *av, char *count, char *firstOne, char *message)
+{
+	char *colon = ": ";
+
+	print_error(av);
+	print_error(colon);
+	print_error(count);
+	print_error(colon);
+	print_error(firstOne);
+	print_error(colon);
+	print_error(message);
+}
+
+/**
+ * print_error - ddfa
+ * @str: a
+ */
+void print_error(char *str)
+{
+	_puts(STDERR_FILENO, str);
+}
+
+/**
  * _puts - Prints a string in stdout followed by a new line
- *
+ * @fd: File descriptor
  * @str: Pointer of char[] variable
  */
 void _puts(int fd, char *str)
 {
 	char *t;
+	int len = 0;
 
 	for (t = str; *t != '\0'; t++)
-	{
-		_putchar(fd, *t);
-	}
-	_putchar(fd, '\n');
+		len++;
+	write(fd, str, len);
 }
 
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(int fd, char c)
-{
-	return (write(fd, &c, 1));
-}
