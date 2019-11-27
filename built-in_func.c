@@ -47,7 +47,8 @@ void isEnv(char ***tokens, int countToken)
 		i = 0;
 		while (environ[i])
 		{
-			printf("%s\n", environ[i++]);
+			_puts(STDOUT_FILENO, environ[i++]);
+			_puts(STDOUT_FILENO, "\n");
 		}
 		free(*tokens);
 		*tokens = NULL;

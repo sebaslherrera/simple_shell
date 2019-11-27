@@ -31,7 +31,7 @@ typedef struct Node
 } Node;
 
 /* Main function */
-void shellLoop(char **argv);
+int shellLoop(char **argv);
 
 /* Built-in function */
 void isBasicExit(char ***tokens, int countToken, ssize_t *gl);
@@ -45,7 +45,7 @@ void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
 void isPath(char ***tokns, char **path, char **av, int *count, int *errShowed);
-int executeLine(char **buffer, char ***tokens, char *fullPath);
+int executeLine(char **buffer, char ***tokens, char *fullPath, int *errShowed);
 
 /* String tools */
 char *_strcat(char *dest, char *src);
@@ -84,4 +84,5 @@ void _puts(int fd, char *str);
 /* string-tools-adv */
 char *itoa(int value, char *buffer, int base);
 
+void isDir(char ***tokens, char **path, char **av, int *count, int *errShowed);
 #endif
