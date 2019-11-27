@@ -18,9 +18,11 @@ void controlC(int var)
  */
 int main(int argc, char **argv)
 {
+	int status = 0;
+
 	(void) argc;
 	signal(SIGINT, controlC);
-	shellLoop(argv);
+	status = shellLoop(argv);
 
-	return (0);
+	return (status);
 }

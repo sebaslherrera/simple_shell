@@ -5,7 +5,7 @@
  * @argv: n
  * Return: nothing
  */
-void shellLoop(char **argv)
+int shellLoop(char **argv)
 {
 	ssize_t getLine = 1;
 	char **tokens = NULL, *buffer = NULL, *fullPath = NULL, *pathCopy = NULL;
@@ -17,18 +17,20 @@ void shellLoop(char **argv)
 	isatty(STDIN_FILENO) == 0 ? inter = 0 : inter;
 	while (TRUE)
 	{
-		errorShowed = 0;
 		inter == 1 ? write(1, promt, 5) : inter; /* Print the promt */
 		fflush(stdout);
 		getLine = readLine(&buffer, &tokens);
 		if (getLine == EOF) /* Check if it's EOF */
 			break;
+		errorShowed = 0;
 		fullPath = addPath(&tokens, path);
 		isPath(&tokens, &fullPath, argv, &counter, &errorShowed);
+		isDir(&tokens, &fullPath, argv, &counter, &errorShowed);
 		executeLine(&buffer, &tokens, fullPath);
 		counter++;
 	}
 	free_list(path); /* This is a linked list with all the paths */
 	free(pathCopy); /* This is on _getpathdir() environ.c */
 	free(buffer); /* This is the main buffer */
+	return (errorShowed);
 }

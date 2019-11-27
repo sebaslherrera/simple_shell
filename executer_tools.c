@@ -77,13 +77,51 @@ void isPath(char ***tokens, char **path, char **av, int *count, int *errShowed)
 		{
 			msg = "not found\n";
 			pfError(av[0], itoa(*count, buffer, 10), firstOne, msg);
-			*errShowed = 1;
+			*errShowed = 127;
 		}
 		else if (access(firstOne, X_OK) != 0)
 		{
 			msg = "Permission denied\n";
 			pfError(av[0], itoa(*count, buffer, 10), firstOne, msg);
-			*errShowed = 1;
+			*errShowed = 126;
 		}
 	}
 }
+
+/**
+ * isDir - some
+ * @tokens: n
+ * @path: n
+ * @av: n
+ * @count: n
+ * @errShowed: n
+ */
+void isDir(char ***tokens, char **path, char **av, int *count, int *errShowed)
+{
+	struct stat st;
+	char *firstOne = NULL;
+	char buffer[33];
+	char *msg = NULL;
+
+	if (*tokens == NULL)
+		return;
+
+	firstOne = *(tokens)[0];
+
+	if (stat(firstOne, &st) == 0)
+	{
+		if ((st.st_mode & S_IFMT) == S_IFDIR)
+		{
+			msg = "Permission denied\n";
+			pfError(av[0], itoa(*count, buffer, 10), firstOne, msg);
+			*errShowed = 126;
+
+			if (*path != NULL)
+			{
+				free(*path);
+				*path = NULL;
+			}
+		}
+	}
+}
+
