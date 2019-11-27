@@ -32,7 +32,7 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 		if (exec == -1)
 		{
 			/*printf("Exec -1 \n");*/
-			perror((*tokens)[0]);
+			/*perror((*tokens)[0]);*/
 			free(*tokens);
 			free(*buffer);
 			exit(99);

@@ -8,12 +8,10 @@
 void shellLoop(char **argv)
 {
 	ssize_t getLine = 1;
-	char **tokens = NULL, *buffer = NULL, *fullPath = NULL;
+	char **tokens = NULL, *buffer = NULL, *fullPath = NULL, *pathCopy = NULL;
 	char *promt = "($) ";
 	Node *path = NULL;
-	char *pathCopy = NULL;
-	int inter = 1;
-	int errorShowed = 0, counter = 1;
+	int inter = 1, errorShowed = 0, counter = 1;
 
 	path = listpath(&pathCopy);
 	isatty(STDIN_FILENO) == 0 ? inter = 0 : inter;
@@ -27,17 +25,10 @@ void shellLoop(char **argv)
 			break;
 		fullPath = addPath(&tokens, path);
 		isPath(&tokens, &fullPath, argv, &counter, &errorShowed);
-		/*printf("fullPath: %s\n", fullPath);*/
 		executeLine(&buffer, &tokens, fullPath);
-		/*if (status == 1) */
-		  /*	printf("EXITO STATUS\n");*/
 		counter++;
-		/*if (errorShowed == 1) */
-			/*printf("SE MOSTRO UN ERROR\n");*/
 	}
-	/*printf("OUT OF LOOP\n");*/
 	free_list(path); /* This is a linked list with all the paths */
 	free(pathCopy); /* This is on _getpathdir() environ.c */
 	free(buffer); /* This is the main buffer */
-	/*printf("END OF shellLop(void)\n");*/
 }
