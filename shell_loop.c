@@ -26,7 +26,7 @@ int shellLoop(char **argv)
 		fullPath = addPath(&tokens, path);
 		isPath(&tokens, &fullPath, argv, &counter, &errorShowed);
 		isDir(&tokens, &fullPath, argv, &counter, &errorShowed);
-		executeLine(&buffer, &tokens, fullPath);
+		executeLine(&buffer, &tokens, fullPath, &errorShowed);
 		counter++;
 	}
 	free_list(path); /* This is a linked list with all the paths */

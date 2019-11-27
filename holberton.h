@@ -45,7 +45,7 @@ void processTokens(char ***tokens, char **buffer, int countToken);
 
 /* Executer */
 void isPath(char ***tokns, char **path, char **av, int *count, int *errShowed);
-int executeLine(char **buffer, char ***tokens, char *fullPath);
+int executeLine(char **buffer, char ***tokens, char *fullPath, int *errShowed);
 
 /* String tools */
 char *_strcat(char *dest, char *src);

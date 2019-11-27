@@ -5,9 +5,10 @@
  * @buffer: n
  * @tokens: n
  * @fullPath: n
+ * @st: n
  * Return: (int) status
  */
-int executeLine(char **buffer, char ***tokens, char *fullPath)
+int executeLine(char **buffer, char ***tokens, char *fullPath, int *st)
 {
 	int p_child, exec, status;
 
@@ -41,6 +42,8 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+			*st = WEXITSTATUS(status); /* status code of the child */
 	}
 	/*printf("Before free the *tokens in exec\n");*/
 	free(*tokens);
