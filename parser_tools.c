@@ -14,10 +14,7 @@ char *addPath(char ***tokens, Node *path)
 	int lenOne, lenTwo;
 
 	if (*tokens == NULL)
-	{
-		/*printf("TOKENS NULO en addPath()\n");*/
 		return (NULL);
-	}
 
 	pathDirs = path;
 	if (pathDirs == NULL)
@@ -33,10 +30,9 @@ char *addPath(char ***tokens, Node *path)
 		if (copyPath == NULL)
 			return (NULL);
 		*copyPath = '\0'; /* Initialized value with null char */
-		/*printf("%s\n", pathDirs->str);*/
-		strcat(copyPath, pathDirs->str);
-		strcat(copyPath, "/");
-		strcat(copyPath, firstOne);
+		_strcat(copyPath, pathDirs->str);
+		_strcat(copyPath, "/");
+		_strcat(copyPath, firstOne);
 		if (stat(copyPath, &st) == 0)
 			break;
 
@@ -44,7 +40,6 @@ char *addPath(char ***tokens, Node *path)
 		copyPath = NULL;
 		pathDirs = pathDirs->next;
 	}
-	/*printf("copyPath %s\n", copyPath);*/
 	return (copyPath);
 
 }
@@ -68,11 +63,9 @@ void processTokens(char ***tokens, char **buffer, int countToken)
 	for (i = 0; token != NULL; i++)
 	{
 		(*tokens)[i] = token;
-		/*printf("mi token i: %d, %s\n", i, (*tokens)[i]);*/
 		token = strtok(NULL, delim);
 	}
 	(*tokens)[i] = token; /*Save the NULL token*/
-	/*printf("mi token i: %d, %s\n", i, (*tokens)[i]);*/
 }
 
 /**
@@ -129,14 +122,8 @@ ssize_t readLine(char **buffer, char ***tokens)
 	*tokens = NULL;
 	gl = _getline(buffer, &bufferSize, stdin);
 
-	/*
-	 * if (gl == -1)
-		printf("return of getline es -1\n");
-	*/
-
 	if (gl > 0 && **buffer != '\n')
 	{
-		/*printf("Entro al if != new line\n");*/
 		replaceNewLine(buffer);
 		countToken = lenTokens(gl, buffer);
 		processTokens(tokens, buffer, countToken);
@@ -144,9 +131,5 @@ ssize_t readLine(char **buffer, char ***tokens)
 		isEnv(tokens, countToken);
 	}
 
-	/*
-	 * if (**buffer == '\n')
-		printf("LE INGRESASTE UN ENTER (new line)\n");
-	*/
 	return (gl);
 }

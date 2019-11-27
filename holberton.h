@@ -76,4 +76,12 @@ Node *listpath(char **pathCopy);
 /* Return the path if found a executable */
 char *addPath(char ***tokens, Node *path);
 
+/* Prints */
+void pfError(char *av, char *count, char *firstOne, char *message);
+void print_error(char *str);
+void _puts(int fd, char *str);
+
+/* string-tools-adv */
+char *itoa(int value, char *buffer, int base);
+
 #endif

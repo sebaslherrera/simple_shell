@@ -14,7 +14,6 @@ void free_list(Node *head)
 	{
 		temp = head;
 		head = head->next;
-		/*free(temp->str);*/
 		free(temp);
 	}
 	free(head);
@@ -33,9 +32,9 @@ size_t print_list(const Node *h)
 	while (h != NULL)
 	{
 		if (h->str != NULL)
-			printf("%s\n", h->str);
+			_puts(STDOUT_FILENO, h->str);
 		else
-			printf("%s\n", "(nil)");
+			_puts(STDOUT_FILENO, "(nil)");
 
 		h = h->next;
 		i++;
