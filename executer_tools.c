@@ -31,7 +31,7 @@ int executeLine(char **buffer, char ***tokens, char *fullPath)
 		exec = execve(fullPath, *tokens, environ);
 		if (exec == -1)
 		{
-			printf("Exec -1 \n");
+			/*printf("Exec -1 \n");*/
 			perror((*tokens)[0]);
 			free(*tokens);
 			free(*buffer);
@@ -73,6 +73,7 @@ void isPath(char ***tokens, char **path, char **av, int *count, int *errShowed)
 	{
 		if (access(firstOne, F_OK) != 0)
 		{
+			_puts(STDERR_FILENO, "not found");
 			dprintf(STDERR_FILENO, "%s: %d: %s: not found\n", av[0], *count, firstOne);
 			*errShowed = 1;
 		}

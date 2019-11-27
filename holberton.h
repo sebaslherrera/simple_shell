@@ -76,4 +76,8 @@ Node *listpath(char **pathCopy);
 /* Return the path if found a executable */
 char *addPath(char ***tokens, Node *path);
 
+/* Prints */
+void _puts(int fd, char *str);
+int _putchar(int fd, char c);
+
 #endif
