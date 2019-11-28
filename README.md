@@ -1,11 +1,6 @@
 # Sebastian Lopez and Jorge Chaux Simple Shell
 ![Simple_shell](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg "Simple_shell")
 
-**Table of Contents**
-
-[TOCM]
-
-[TOC]
 ### Name
 simple_shell
 ### Description
@@ -146,4 +141,5 @@ The following files contain different functions that where used:
 [![simple_shell flowchart](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")
 ### Credits
 Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/)
+
 [![Holberton School](https://www.holbertonschool.com/holberton-logo.png "Holberton School")](https://www.holbertonschool.com/holberton-logo.png "Holberton School")
