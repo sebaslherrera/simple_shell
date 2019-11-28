@@ -117,10 +117,21 @@ ssize_t readLine(char **buffer, char ***tokens)
 {
 	size_t bufferSize = 0;
 	ssize_t gl;
-	int countToken;
+	int countToken, i;
 
 	*tokens = NULL;
 	gl = _getline(buffer, &bufferSize, stdin);
+
+	if (gl > 0)
+	{
+		i = 0;
+		while ((*buffer)[i] == ' ' || (*buffer)[i] == '\t')
+		{
+			if ((*buffer)[i + 1] == '\n')
+				return (gl);
+			i++;
+		}
+	}
 
 	if (gl > 0 && **buffer != '\n')
 	{
