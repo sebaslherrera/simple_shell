@@ -52,6 +52,7 @@ char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
 
 /* Print linked list*/
 size_t print_list(const Node *h);
