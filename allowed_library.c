@@ -32,11 +32,14 @@ int _getchar(void)
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
 	char *temp;
-	const size_t n_alloc = 120;
+	size_t n_alloc = 120;
 	size_t n_read = 0;
+	size_t old_size;
 	size_t n_realloc;
 	int c;
+	static int i; /* TODO: Use static variable */
 
+	(void) i;
 	if (lineptr == NULL || n == NULL || stream == NULL)
 		return (-1);
 
@@ -51,12 +54,14 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	{
 		if (n_read >= *n)
 		{
+			old_size = n_alloc; /* Save the old size allocated */
 			n_realloc = *n + n_alloc;
-			temp = _realloc(*lineptr, n_alloc, n_realloc + 1); /* TODO: n_alloc */
+			temp = _realloc(*lineptr, old_size, n_realloc + 1); /* TODO: n_alloc */
 
 			if (temp == NULL)
 				return (-1);
 
+			n_alloc = n_realloc + 1; /* Update the size allocated with the new size*/
 			*lineptr = temp;
 			*n = n_realloc;
 		}
