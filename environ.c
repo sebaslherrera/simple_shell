@@ -41,7 +41,6 @@ Node *_getpathdir(char *path, char **pathCopy)
 	char *token = NULL;
 	Node *head;
 	Node *pathNode;
-	char *delim = ":\0"; /* The null char is new */
 
 
 	if (path == NULL)
@@ -54,13 +53,13 @@ Node *_getpathdir(char *path, char **pathCopy)
 	if (pathNode == NULL)
 		return (NULL);
 
-	token = strtok(*pathCopy,  delim);
+	token = strtok(*pathCopy,  ":");
 	pathNode->str = token;
 	pathNode->next = head;
 	head = pathNode;
 	while (token != NULL)
 	{
-		token = strtok(NULL, delim);
+		token = strtok(NULL, ":");
 		if (token == NULL) /* Don't save token NULL in list */
 			break;
 		pathNode = malloc(sizeof(Node));
@@ -83,11 +82,9 @@ Node *_getpathdir(char *path, char **pathCopy)
 Node *listpath(char **pathCopy)
 {
 	char *getEnv;
-	Node *pathDirs = NULL;
+	Node *pathDirs;
 
 	getEnv = _getenv("PATH");
-	if (*getEnv == '\0')
-		return (NULL);
 	pathDirs = _getpathdir(getEnv, pathCopy);
 
 	return (pathDirs);
