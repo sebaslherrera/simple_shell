@@ -1,11 +1,6 @@
 # Sebastian Lopez and Jorge Chaux Simple Shell
 ![Simple_shell](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg "Simple_shell")
 
-**Table of Contents**
-
-[TOCM]
-
-[TOC]
 ### Name
 simple_shell
 ### Description
@@ -14,7 +9,7 @@ simple_shell is an emulation of UNIX command interpreter.
 As an emulation, the simple_shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
 ### Invocation
  If no args are present and if the standard input of the shell is connected  to  a terminal the shell is considered an interactive shell.
- 
+
 An  interactive  shell generally prompts before each command and handles programming and command errors differently.
 
 This was done as an exercise for [Holberton School](https://www.holbertonschool.com/)
@@ -131,18 +126,20 @@ But also in non-interactive mode:
 ### Included files
 The following files contain different functions that where used:
 - allowed_library.c
+- built-in_func.c
 - environ.c
 - executer_tools.c
-Functions to execute a line.
 - holberton.h
 - list_tools.c
 - main.c
-- parser_tools.c 
-Contain functions to read a line, replace a new line, find the lengt of a token and process tokens.
-- shell_loop.c 
-Main shell function
+- parser_tools.c
+- prints.c
+- shell_loop.c
+- string-tools-adv.c
 - string-tools.c
-Contain functions to manage strings
-
+#### General flowchart for simple_shell
+[![simple_shell flowchart](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")
 ### Credits
-Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/) 
+Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/)
+
+[![Holberton School](https://www.holbertonschool.com/holberton-logo.png "Holberton School")](https://www.holbertonschool.com/holberton-logo.png "Holberton School")
