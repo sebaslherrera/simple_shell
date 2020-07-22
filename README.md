@@ -1,18 +1,15 @@
-# Sebastian Lopez and Jorge Chaux Simple Shell
-![Simple_shell](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg "Simple_shell")
+# Simple Shell
+![Simple_shell](media/shell-linux-readme.jpg "Simple_shell")
 
-### Name
-simple_shell
-### Description
+## Description
 simple_shell is an emulation of UNIX command interpreter.
-### Overview
+## Overview
 As an emulation, the simple_shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
-### Invocation
+## Invocation
  If no args are present and if the standard input of the shell is connected  to  a terminal the shell is considered an interactive shell.
 
 An  interactive  shell generally prompts before each command and handles programming and command errors differently.
 
-This was done as an exercise for [Holberton School](https://www.holbertonschool.com/)
 ## Learning Objectives
 ### General
 - Who designed and implemented the original Unix operating system
@@ -95,12 +92,12 @@ Same error with your program hsh:
 - wait4 (man 2 wait4)
 - write (man 2 write)
 
-### Compilation
+## Install (Compilation)
 Your shell will be compiled this way:
 
     gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 
-### Testing
+## Testing
 Your shell should work like this in interactive mode:
 
      $ ./hsh
@@ -137,9 +134,15 @@ The following files contain different functions that where used:
 - shell_loop.c
 - string-tools-adv.c
 - string-tools.c
-#### General flowchart for simple_shell
+### General flowchart for simple_shell
 [![simple_shell flowchart](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")
-### Credits
-Code written by [Sebastian Lopez](https://github.com/sebas119/) and [Jorge Chaux](https://github.com/jorgechauxjr/)
+
+## Authors :black_nib:
+* __Sebastian Lopez Herrera__ <[sebaslherrera](https://github.com/sebaslherrera)>
+* __Jorge Chaux__ <[jorgechauxjr](https://github.com/jorgechauxjr/)>
 
 [![Holberton School](https://www.holbertonschool.com/holberton-logo.png "Holberton School")](https://www.holbertonschool.com/holberton-logo.png "Holberton School")
+
+## License
+
+MIT © 
