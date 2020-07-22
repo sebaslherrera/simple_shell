@@ -2,8 +2,8 @@
 
 /**
  * addPath - Get and check if the command is available
- * @tokens: n
- * @path: n
+ * @tokens: Pointer to array of strings
+ * @path: Pinter of the head of a LinkedList
  * Return: Pointer to the filename where is the path to use
  */
 char *addPath(char ***tokens, Node *path)
@@ -46,9 +46,9 @@ char *addPath(char ***tokens, Node *path)
 /**
  * processTokens - Get all of the strings separated by a delimiter in
  * an array of strings
- * @tokens: n
- * @buffer: n
- * @countToken: n
+ * @tokens: Pointer to array of strings
+ * @buffer: Array of strings
+ * @countToken: Counter of tokens in array
  *
  * Return: nothing
  */
@@ -70,8 +70,8 @@ void processTokens(char ***tokens, char **buffer, int countToken)
 
 /**
  * lenTokens - Get the number of words separated by a delimiter
- * @lenReaded: n
- * @buffer: n
+ * @lenReaded: Length of lines readed
+ * @buffer: Array of strings
  * Return: (int) of words in the buffer
  */
 int lenTokens(ssize_t lenReaded, char **buffer)
@@ -93,7 +93,7 @@ int lenTokens(ssize_t lenReaded, char **buffer)
 /**
  * replaceNewLine - Replace the new line in the buffer
  * by a null character
- * @buffer: n
+ * @buffer: Array of strings
  * Return: nothing
  */
 void replaceNewLine(char **buffer)
@@ -109,8 +109,8 @@ void replaceNewLine(char **buffer)
 
 /**
  * readLine - Get and process the data in the stdin
- * @buffer: n
- * @tokens: n
+ * @buffer: Array of strings
+ * @tokens: Pointer to array of strings
  * Return: (ssize_t) The number of chars readed in stdin
  */
 ssize_t readLine(char **buffer, char ***tokens)

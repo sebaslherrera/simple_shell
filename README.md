@@ -138,7 +138,7 @@ The following files contain different functions that where used:
 [![simple_shell flowchart](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")](https://miro.medium.com/max/1080/1*R12UpSwO2y_-cyULqq7C1w.jpeg "simple_shell flowchart")
 
 ## Authors :black_nib:
-* __Sebastian Lopez Herrera__ <[sebaslherrera](https://github.com/sebaslherrera)>
+* __Sebastian Lopez Herrera__  Github <[sebaslherrera](https://github.com/sebaslherrera)> / LinkedIn <[sebaslherrera](https://www.linkedin.com/in/sebaslherrera/)>
 * __Jorge Chaux__ <[jorgechauxjr](https://github.com/jorgechauxjr/)>
 
 [![Holberton School](https://www.holbertonschool.com/holberton-logo.png "Holberton School")](https://www.holbertonschool.com/holberton-logo.png "Holberton School")

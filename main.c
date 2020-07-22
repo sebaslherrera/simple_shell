@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * controlC - some
- * @var: n
+ * controlC - Helper to capture the signal of CTRL+C
+ * @var: Integer variable
  */
 void controlC(int var)
 {
@@ -12,9 +12,9 @@ void controlC(int var)
 
 /**
  * main - Simple Shell Project
- * @argc: m
- * @argv: m
- * Return: nothing
+ * @argc: Number of arguments - Integer
+ * @argv: Array of arguments - Array of strings
+ * Return: 0 on success, 1 on failure
  */
 int main(int argc, char **argv)
 {
